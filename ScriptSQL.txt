@@ -1,4 +1,3 @@
-
 CREATE TABLE funcionarios (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
