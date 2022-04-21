@@ -24,6 +24,7 @@ COMMENT ON COLUMN salario IS 'O salário do funcionário';
 COMMENT ON COLUMN cpf_supervisor IS 'CPF do supervisor desse funcionário';
 COMMENT ON COLUMN numero_departamento IS 'Número do departamento em que o funcionário trabalha';
 
+
 CREATE TABLE departamento (
                 numero_departamento INT NOT NULL,
                 nome_departamento VARCHAR(15) NOT NULL,
@@ -33,6 +34,11 @@ CREATE TABLE departamento (
                 UNIQUE (cpf_gerente)
                 UNIQUE (nome_departamento)
 );
+COMMENT ON TABLE departamento IS 'Tabela que contém informações sobre os departamentos';
+COMMENT ON COLUMN numero_departamento IS 'Número do departamento';
+COMMENT ON COLUMN nome_departamento IS 'Nome do departamento';
+COMMENT ON COLUMN cpf_gerente IS 'CPF do funcionário que é gerente';
+COMMENT ON COLUMN data_inicio_gerente IS 'Data em que o gerente começou a trabalhar no departamento';
 
 
 CREATE TABLE localizacoes_departamento (
@@ -42,7 +48,8 @@ CREATE TABLE localizacoes_departamento (
 );
 COMMENT ON TABLE localizacoes_departamento IS 'Tabela que contém os dados das localizações dos departamentos';
 COMMENT ON COLUMN numero_departamento IS 'Número do departamento';
-COMMENT ON COLUMN local IS 'Onde o departamento está';
+COMMENT ON COLUMN local IS 'Onde o departamento está fisicamente';
+
 
 CREATE TABLE projeto (
                 numero_projeto INT NOT NULL,
@@ -51,6 +58,11 @@ CREATE TABLE projeto (
                 numero_departamento INT NOT NULL,
                 PRIMARY KEY (numero_projeto)
 );
+COMMENT ON TABLE projeto IS 'Tabela que contém informações sobre os projetos';
+COMMENT ON COLUMN numero_projeto IS 'Número do projeto';
+COMMENT ON COLUMN nome_projeto IS 'Nome do projeto';
+COMMENT ON COLUMN local_projeto IS 'Local em que o projeto se localiza fisicamente';
+COMMENT ON COLUMN numero_departamento IS 'Número do departamento em que o projeto fica';
 
 
 CREATE TABLE trabalha_em (
@@ -73,6 +85,12 @@ CREATE TABLE dependente (
                 parentesco VARCHAR(15),
                 PRIMARY KEY (cpf_funcionario, nome_dependente)
 );
+COMMENT ON TABLE dependente IS 'Tabela que contém informações sobre os dependentes dos funcionários';
+COMMENT ON COLUMN cpf_funcionario IS 'CPF do funcionário que trabalha na empresa';
+COMMENT ON COLUMN nome_dependente IS 'Nome do dependente do funcionário';
+COMMENT ON COLUMN sexo IS 'Qual a identidade do sexual do dependente';
+COMMENT ON COLUMN data_nascimento IS 'Data de nascimento do dependente';
+COMMENT ON COLUMN parentesco IS 'Tipo de parentesco entre o funcionário e o dependente';
 
 
 ALTER TABLE funcionarios ADD CONSTRAINT funcionarios_funcionarios_fk
