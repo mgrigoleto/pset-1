@@ -31,6 +31,7 @@ CREATE TABLE departamento (
                 data_inicio_gerente DATE,
                 PRIMARY KEY (numero_departamento),
                 UNIQUE (cpf_gerente)
+                UNIQUE (nome_departamento)
 );
 
 
@@ -39,7 +40,9 @@ CREATE TABLE localizacoes_departamento (
                 local VARCHAR(15) NOT NULL,
                 PRIMARY KEY (numero_departamento, local)
 );
-
+COMMENT ON TABLE localizacoes_departamento IS 'Tabela que contém os dados das localizações dos departamentos';
+COMMENT ON COLUMN numero_departamento IS 'Número do departamento';
+COMMENT ON COLUMN local IS 'Onde o departamento está';
 
 CREATE TABLE projeto (
                 numero_projeto INT NOT NULL,
@@ -56,6 +59,10 @@ CREATE TABLE trabalha_em (
                 horas DECIMAL(3,1) NOT NULL,
                 PRIMARY KEY (cpf_funcionario, numero_projeto)
 );
+COMMENT ON TABLE trabalha_em IS 'Tabela contendo informações sobre o funcionário e o projeto em que trabalha';
+COMMENT ON COLUMN cpf_funcionario IS 'CPF do funcionário';
+COMMENT ON COLUMN numero_projeto IS 'Nome do projeto em que o funcionário trabalha';
+COMMENT ON COLUMN horas IS 'Carga horária de trabalho do funcionário';
 
 
 CREATE TABLE dependente (
