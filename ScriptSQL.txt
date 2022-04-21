@@ -12,7 +12,17 @@ CREATE TABLE funcionarios (
                 numero_departamento INT NOT NULL,
                 PRIMARY KEY (cpf)
 );
-
+COMMENT ON TABLE funcionarios IS 'Tabela que contém os dados dos funcionários';
+COMMENT ON COLUMN cpf IS 'CPF do funcionário';
+COMMENT ON COLUMN primeiro_nome IS 'Primeiro nome do funcionário';
+COMMENT ON COLUMN nome_meio IS 'Nome do meio do funcionário';
+COMMENT ON COLUMN ultimo_nome IS 'Último nome do funcionário';
+COMMENT ON COLUMN data_nascimento IS 'Data de nascimento do funcionário';
+COMMENT ON COLUMN endereco IS 'Local em que o funcionário reside';
+COMMENT ON COLUMN sexo IS 'Qual a identidade do sexual do funcionário';
+COMMENT ON COLUMN salario IS 'O salário do funcionário';
+COMMENT ON COLUMN cpf_supervisor IS 'CPF do supervisor desse funcionário';
+COMMENT ON COLUMN numero_departamento IS 'Número do departamento em que o funcionário trabalha';
 
 CREATE TABLE departamento (
                 numero_departamento INT NOT NULL,
