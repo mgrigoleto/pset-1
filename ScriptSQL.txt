@@ -4,7 +4,7 @@ CREATE TABLE funcionarios (
                 nome_meio CHAR(1),
                 ultimo_nome VARCHAR(15) NOT NULL,
                 data_nascimento DATE,
-                endereco VARCHAR(30),
+                endereco VARCHAR(70),
                 sexo CHAR(1),
                 salario DECIMAL(10,2),
                 cpf_supervisor CHAR(11),
@@ -42,7 +42,7 @@ COMMENT ON COLUMN departamento.data_inicio_gerente IS 'Data em que o gerente com
 
 CREATE TABLE localizacoes_departamento (
                 numero_departamento INT NOT NULL,
-                local VARCHAR(15) NOT NULL,
+                local VARCHAR(45) NOT NULL,
                 PRIMARY KEY (numero_departamento, local)
 );
 COMMENT ON TABLE localizacoes_departamento IS 'Tabela que contém os dados das localizações dos departamentos';
@@ -53,7 +53,7 @@ COMMENT ON COLUMN localizacoes_departamento.local IS 'Onde o departamento está 
 CREATE TABLE projeto (
                 numero_projeto INT NOT NULL,
                 nome_projeto VARCHAR(15) NOT NULL,
-                local_projeto VARCHAR(15),
+                local_projeto VARCHAR(45),
                 numero_departamento INT NOT NULL,
                 PRIMARY KEY (numero_projeto)
 );
@@ -133,3 +133,5 @@ FOREIGN KEY (numero_projeto)
 REFERENCES projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
+
+ALTER TABLE funcionarios
