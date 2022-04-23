@@ -1,9 +1,9 @@
 # Sumário de arquivos do PSET-1
-by Maurício Grigoleto Belinassi  
+_by Maurício Grigoleto Belinassi_  
 Todo o trabalho foi realizado por mim, com ajuda de blogs, fóruns, documentações e conteúdos na internet.  <br/>
 
 
-#### ARQUIVOS    <br/>
+### ARQUIVOS    <br/>
 
 ScriptSQL.txt = Arquivo contendo os comandos SQL para criação de todas as tabelas do Banco de Dados 'uvv'  
 Insert.txt = Arquivo contendo os comandos SQL de inserção de dados no Banco de Dados  
