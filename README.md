@@ -1,4 +1,4 @@
-# Sumário de arquivos do PSET-1
+# Informações sobre o trabalho
 _by Maurício Grigoleto Belinassi_  
 Todo o trabalho foi realizado por mim, com ajuda de blogs, fóruns, documentações e conteúdos na internet.  <br/>
 
