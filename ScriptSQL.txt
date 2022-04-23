@@ -1,3 +1,4 @@
+/* CRIANDO A TABELA DE FUNCIONÁRIOS */
 CREATE TABLE funcionarios (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
@@ -24,6 +25,7 @@ COMMENT ON COLUMN funcionarios.cpf_supervisor IS 'CPF do supervisor desse funcio
 COMMENT ON COLUMN funcionarios.numero_departamento IS 'Número do departamento em que o funcionário trabalha';
 
 
+/* CRIANDO A TABELA DE DEPARTAMENTO */
 CREATE TABLE departamento (
                 numero_departamento INT NOT NULL,
                 nome_departamento VARCHAR(15) NOT NULL,
@@ -40,6 +42,7 @@ COMMENT ON COLUMN departamento.cpf_gerente IS 'CPF do funcionário que é gerent
 COMMENT ON COLUMN departamento.data_inicio_gerente IS 'Data em que o gerente começou a trabalhar no departamento';
 
 
+/* CRIANDO A TABELA DE LOCALIZAÇÃO DE DEPARTAMENTO */
 CREATE TABLE localizacoes_departamento (
                 numero_departamento INT NOT NULL,
                 local VARCHAR(45) NOT NULL,
@@ -50,6 +53,7 @@ COMMENT ON COLUMN localizacoes_departamento.numero_departamento IS 'Número do d
 COMMENT ON COLUMN localizacoes_departamento.local IS 'Onde o departamento está fisicamente';
 
 
+/* CRIANDO A TABELA DE PROJETO */
 CREATE TABLE projeto (
                 numero_projeto INT NOT NULL,
                 nome_projeto VARCHAR(15) NOT NULL,
@@ -64,6 +68,7 @@ COMMENT ON COLUMN projeto.ocal_projeto IS 'Local em que o projeto se localiza fi
 COMMENT ON COLUMN projeto.numero_departamento IS 'Número do departamento em que o projeto fica';
 
 
+/* CRIANDO A TABELA CONTENDO OS DADOS DE ONDE OS FUNCIONÁRIOS TRABALHAM */
 CREATE TABLE trabalha_em (
                 cpf_funcionario CHAR(11) NOT NULL,
                 numero_projeto INT NOT NULL,
@@ -76,6 +81,7 @@ COMMENT ON COLUMN trabalha_em.numero_projeto IS 'Nome do projeto em que o funcio
 COMMENT ON COLUMN trabalha_em.horas IS 'Carga horária de trabalho do funcionário';
 
 
+/* CRIANDO A TABELA DOS DEPENDENTES DOS FUNCIONÁRIOS */
 CREATE TABLE dependente (
                 cpf_funcionario CHAR(11) NOT NULL,
                 nome_dependente VARCHAR(15) NOT NULL,
@@ -92,6 +98,7 @@ COMMENT ON COLUMN dependente.data_nascimento IS 'Data de nascimento do dependent
 COMMENT ON COLUMN dependente.parentesco IS 'Tipo de parentesco entre o funcionário e o dependente';
 
 
+/* CRIANDO RESTRIÇÕES PARA CHAVES PRIMÁRIAS E ESTRANGEIRAS */
 ALTER TABLE funcionarios ADD CONSTRAINT funcionarios_funcionarios_fk
 FOREIGN KEY (cpf_supervisor)
 REFERENCES funcionarios (cpf)
@@ -134,6 +141,8 @@ REFERENCES projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
+
+/* CRIANDO UMA CONSTRAINT PARA VERIFICAR SE O VALOR INSERIDO PARA 'sexo' ESTÁ CORRETO */
 ALTER TABLE funcionarios ADD CONSTRAINT c_sexo_funcionario
 CHECK (sexo='M' or sexo='F' or sexo='m' or sexo='f');
 
