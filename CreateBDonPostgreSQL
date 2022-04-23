@@ -1,4 +1,7 @@
 CREATE DATABASE uvv WITH OWNER = grigoleto TEMPLATE = template0 ENCODING = UTF8 LC_COLLATE = 'pt_BR.UTF-8' LC_CTYPE = 'pt_BR.UTF-8' ALLOW_CONNECTIONS = true;
+/* Criando o banco de dados 'uvv'. */
+
 CREATE SCHEMA elmasri;
 ALTER USER grigoleto
 SET SEARCH_PATH TO elmasri, "$user", public;
+/* SCHEMA criado para meu usuário. Substitua o usuário 'grigoleto' pelo seu usuário. */
