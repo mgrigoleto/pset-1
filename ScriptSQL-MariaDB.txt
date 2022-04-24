@@ -12,7 +12,6 @@ CREATE TABLE funcionarios (
                 numero_departamento INT NOT NULL COMMENT 'Número do departamento em que o funcionário trabalha',
                 PRIMARY KEY (cpf)
 )COMMENT = 'Tabela que contém os dados dos funcionários';
-;
 
 
 /* CRIANDO A TABELA DE DEPARTAMENTO */
@@ -63,12 +62,6 @@ CREATE TABLE dependente (
                 parentesco VARCHAR(15) COMMENT 'Tipo de parentesco entre o funcionário e o dependente',
                 PRIMARY KEY (cpf_funcionario, nome_dependente)
 )COMMENT = 'Tabela que contém informações sobre os dependentes dos funcionários';
-COMMENT ON TABLE dependente IS ;
-COMMENT ON COLUMN dependente.cpf_funcionario IS ;
-COMMENT ON COLUMN dependente.nome_dependente IS ;
-COMMENT ON COLUMN dependente.sexo IS ;
-COMMENT ON COLUMN dependente.data_nascimento IS ;
-COMMENT ON COLUMN dependente.parentesco IS ;
 
 
 /* CRIANDO RESTRIÇÕES PARA CHAVES PRIMÁRIAS E ESTRANGEIRAS */
