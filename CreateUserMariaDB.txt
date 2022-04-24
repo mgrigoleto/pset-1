@@ -1,0 +1,3 @@
+/* Criando usuário */
+CREATE USER 'grigoleto'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON * . * TO 'grigoleto'@'localhost';
