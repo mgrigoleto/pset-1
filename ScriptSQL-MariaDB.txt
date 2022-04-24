@@ -1,0 +1,123 @@
+/* CRIANDO A TABELA DE FUNCIONÁRIOS */
+CREATE TABLE funcionarios (
+                cpf CHAR(11) NOT NULL COMMENT = 'CPF do funcionário',
+                primeiro_nome VARCHAR(15) NOT NULL COMMENT = 'Primeiro nome do funcionário',
+                nome_meio CHAR(1) COMMENT = 'Nome do meio do funcionário',
+                ultimo_nome VARCHAR(15) NOT NULL COMMENT = 'Último nome do funcionário',
+                data_nascimento DATE COMMENT = 'Data de nascimento do funcionário',
+                endereco VARCHAR(70) COMMENT = 'Local em que o funcionário reside',
+                sexo CHAR(1) COMMENT = 'Qual a identidade do sexual do funcionário',
+                salario DECIMAL(10,2) COMMENT = 'O salário do funcionário',
+                cpf_supervisor CHAR(11) COMMENT = 'CPF do supervisor desse funcionário',
+                numero_departamento INT NOT NULL COMMENT = 'Número do departamento em que o funcionário trabalha',
+                PRIMARY KEY (cpf)
+)COMMENT = 'Tabela que contém os dados dos funcionários';
+;
+
+
+/* CRIANDO A TABELA DE DEPARTAMENTO */
+CREATE TABLE departamento (
+                numero_departamento INT NOT NULL COMMENT = 'Número do departamento',
+                nome_departamento VARCHAR(15) NOT NULL COMMENT = 'Nome do departamento',
+                cpf_gerente CHAR(11) NOT NULL COMMENT = 'CPF do funcionário que é gerente',
+                data_inicio_gerente DATE COMMENT = 'Data em que o gerente começou a trabalhar no departamento',
+                PRIMARY KEY (numero_departamento),
+                UNIQUE (cpf_gerente),
+                UNIQUE (nome_departamento)
+)COMMENT = 'Tabela que contém informações sobre os departamentos';
+
+
+/* CRIANDO A TABELA DE LOCALIZAÇÃO DE DEPARTAMENTO */
+CREATE TABLE localizacoes_departamento (
+                numero_departamento INT NOT NULL COMMENT = 'Número do departamento',
+                local VARCHAR(45) NOT NULL COMMENT = 'Onde o departamento está fisicamente',
+                PRIMARY KEY (numero_departamento, local)
+)COMMENT = 'Tabela que contém os dados das localizações dos departamentos';
+
+
+/* CRIANDO A TABELA DE PROJETO */
+CREATE TABLE projeto (
+                numero_projeto INT NOT NULL COMMENT = 'Número do projeto',
+                nome_projeto VARCHAR(15) NOT NULL COMMENT = 'Nome do projeto',
+                local_projeto VARCHAR(45) COMMENT = 'Local em que o projeto se localiza fisicamente',
+                numero_departamento INT NOT NULL COMMENT = 'Número do departamento em que o projeto fica',
+                PRIMARY KEY (numero_projeto)
+)COMMENT = 'Tabela que contém informações sobre os projetos';
+
+
+/* CRIANDO A TABELA CONTENDO OS DADOS DE ONDE OS FUNCIONÁRIOS TRABALHAM */
+CREATE TABLE trabalha_em (
+                cpf_funcionario CHAR(11) NOT NULL COMMENT = 'CPF do funcionário',
+                numero_projeto INT NOT NULL COMMENT = 'Nome do projeto em que o funcionário trabalha',
+                horas DECIMAL(3,1) NOT NULL COMMENT = 'Carga horária de trabalho do funcionário',
+                PRIMARY KEY (cpf_funcionario, numero_projeto)
+)COMMENT = 'Tabela contendo informações sobre o funcionário e o projeto em que trabalha';
+
+
+/* CRIANDO A TABELA DOS DEPENDENTES DOS FUNCIONÁRIOS */
+CREATE TABLE dependente (
+                cpf_funcionario CHAR(11) NOT NULL COMMENT = 'CPF do funcionário que trabalha na empresa',
+                nome_dependente VARCHAR(15) NOT NULL COMMENT = 'Nome do dependente do funcionário',
+                sexo CHAR(1) COMMENT = 'Qual a identidade do sexual do dependente',
+                data_nascimento DATE COMMENT = 'Data de nascimento do dependente',
+                parentesco VARCHAR(15) COMMENT = 'Tipo de parentesco entre o funcionário e o dependente',
+                PRIMARY KEY (cpf_funcionario, nome_dependente)
+)COMMENT = 'Tabela que contém informações sobre os dependentes dos funcionários';
+COMMENT ON TABLE dependente IS ;
+COMMENT ON COLUMN dependente.cpf_funcionario IS ;
+COMMENT ON COLUMN dependente.nome_dependente IS ;
+COMMENT ON COLUMN dependente.sexo IS ;
+COMMENT ON COLUMN dependente.data_nascimento IS ;
+COMMENT ON COLUMN dependente.parentesco IS ;
+
+
+/* CRIANDO RESTRIÇÕES PARA CHAVES PRIMÁRIAS E ESTRANGEIRAS */
+ALTER TABLE funcionarios ADD CONSTRAINT funcionarios_funcionarios_fk
+FOREIGN KEY (cpf_supervisor)
+REFERENCES funcionarios (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE dependente ADD CONSTRAINT funcionarios_dependente_fk
+FOREIGN KEY (cpf_funcionario)
+REFERENCES funcionarios (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE departamento ADD CONSTRAINT funcionarios_departamento_fk
+FOREIGN KEY (cpf_gerente)
+REFERENCES funcionarios (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE trabalha_em ADD CONSTRAINT funcionarios_trabalha_em_fk
+FOREIGN KEY (cpf_funcionario)
+REFERENCES funcionarios (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE projeto ADD CONSTRAINT departamento_projeto_fk
+FOREIGN KEY (numero_departamento)
+REFERENCES departamento (numero_departamento)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE localizacoes_departamento ADD CONSTRAINT departamento_localizacoes_departamento_fk
+FOREIGN KEY (numero_departamento)
+REFERENCES departamento (numero_departamento)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk
+FOREIGN KEY (numero_projeto)
+REFERENCES projeto (numero_projeto)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+
+/* CRIANDO UMA CONSTRAINT PARA VERIFICAR SE O VALOR INSERIDO PARA 'sexo' ESTÁ CORRETO */
+ALTER TABLE funcionarios ADD CONSTRAINT c_sexo_funcionario
+CHECK (sexo='M' or sexo='F' or sexo='m' or sexo='f');
+
+ALTER TABLE dependente ADD CONSTRAINT c_sexo_dependente
+CHECK (sexo='M' or sexo='F' or sexo='m' or sexo='f');
