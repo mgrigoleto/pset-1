@@ -5,8 +5,10 @@ Todo o trabalho foi realizado por mim, com ajuda de blogs, fóruns, documentaç�
 
 ### ARQUIVOS    <br/>
 
-**CreateDbPostgreSQL.txt** = Arquivo com o código de criação do Banco de Dados e do Schema utilizado   
-**CreateUserPostgreSQL.txt** = Arqvuio para criação de usuário do BD no PostgreSQL  
-**ScriptSQL-PSQL.txt** = Arquivo contendo os comandos SQL para criação de todas as tabelas do BD no PostgreSQL  
+## POSTGRES  <br/>  
+
+**1. CreateUserPostgreSQL.txt** = Arquivo para criação de usuário do BD no PostgreSQL 
+**2. CreateDbPostgreSQL.txt** = Arquivo com o código de criação do Banco de Dados e do Schema utilizado   
+**3. ScriptSQL-PSQL.txt** = Arquivo contendo os comandos SQL para criação de todas as tabelas do BD no PostgreSQL  
 <br/>
-**Insert.txt** = Arquivo contendo os comandos SQL de inserção de dados no Banco de Dados 
+**4. Insert.txt** = Arquivo contendo os comandos SQL de inserção de dados no Banco de Dados 
