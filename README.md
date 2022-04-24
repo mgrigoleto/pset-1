@@ -12,3 +12,11 @@ Todo o trabalho foi realizado por mim, com ajuda de blogs, fóruns, documentaç�
 **3. ScriptSQL-PSQL.txt** = Arquivo contendo os comandos SQL para criação de todas as tabelas do BD no PostgreSQL  
 <br/>
 **4. Insert.txt** = Arquivo contendo os comandos SQL de inserção de dados no Banco de Dados 
+
+## MARIADB  <br/>
+
+**1. CreateUserMariaDB.txt** = Arquivo para criação de usuário do BD no MariaDB  
+**2. CreateDbMariaDB.txt** = Arquivo com o código para criação do Banco de Dados  
+**3. ScriptSQL-MariaDB.txt** = Arquivo contendo os comandos SQL para criação de todas as tabelas do BD no MariaDB   
+<br/>
+**4. Insert.txt** = Arquivo contendo os comandos SQL de inserção de dados no Banco de Dados
