@@ -1,0 +1,3 @@
+su - postgres 
+create user grigoleto with encrypted password '123';
+grant all privileges on database uvv to grigoleto;
