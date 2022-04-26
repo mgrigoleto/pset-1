@@ -63,10 +63,15 @@ CREATE TABLE dependente (
                 PRIMARY KEY (cpf_funcionario, nome_dependente)
 )COMMENT = 'Tabela que contém informações sobre os dependentes dos funcionários';
 
-/* ----------------------------------  PARE DE COPIAR AQUI  ---------------------------------- */
+/* ----------------------------------  PARE DE COPIAR AQUI  ---------------------------------- 
 
 
-/* ----------------------------------  VOLTE A COPIAR DAQUI  --------------------------------- */
+
+
+
+
+
+----------------------------------  VOLTE A COPIAR DAQUI  --------------------------------- */
 
 /* CRIANDO RESTRIÇÕES PARA CHAVES PRIMÁRIAS E ESTRANGEIRAS */
 ALTER TABLE funcionarios ADD CONSTRAINT funcionarios_funcionarios_fk
