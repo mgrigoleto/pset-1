@@ -97,6 +97,14 @@ COMMENT ON COLUMN dependente.sexo IS 'Qual a identidade do sexual do dependente'
 COMMENT ON COLUMN dependente.data_nascimento IS 'Data de nascimento do dependente';
 COMMENT ON COLUMN dependente.parentesco IS 'Tipo de parentesco entre o funcionário e o dependente';
 
+/* ----------------------------------  PARE DE COPIAR AQUI  ---------------------------------- 
+
+
+
+
+
+
+ ----------------------------------  VOLTE A COPIAR DAQUI  --------------------------------- */
 
 /* CRIANDO RESTRIÇÕES PARA CHAVES PRIMÁRIAS E ESTRANGEIRAS */
 ALTER TABLE funcionarios ADD CONSTRAINT funcionarios_funcionarios_fk
