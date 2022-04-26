@@ -7,8 +7,8 @@ Todo o trabalho foi realizado por mim, com ajuda de blogs, fóruns, documentaç�
 
 ## Modelagem  <br/>
 
-** Modelo.png = Modelo do banco de dados  
-_Obs: O modelo foi criado com base no modelo apresentado no documento do PSet. O SQL final não corresponde 100% com o SQL gerado através desse modelo, já que realizei alterações ao decorrer do projeto_
+**Modelo.png** = Modelo do banco de dados  
+_Obs: O modelo foi criado com base no modelo apresentado no documento do PSet. O SQL final não é igual ao SQL gerado através desse modelo, já que realizei alterações ao decorrer do projeto._
 
 ## PostgreSQL  <br/>  
 
