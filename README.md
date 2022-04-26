@@ -2,6 +2,9 @@
 _by Maurício Grigoleto Belinassi_  
 Todo o trabalho foi realizado por mim, com ajuda de blogs, fóruns, documentações e conteúdos na internet.  <br/>
 
+### IMPORTANTE  
+Os arquivos possuem comentários essenciais para seu bom funcionamento. Nos arquivos de nome 'ScriptSQL...' há comentários demarcando as divisões para copiar o código. É EXTREMAMENTE IMPORTANTE que você copie o código em duas partes, divididas pelos tais comentários.  
+_Caso o código seja copiado por inteiro e colado no terminal da VM, há possibilidade de embaralhamento de palavras por ser um código extenso. Nessa situação, o SGBD ignora as partes embaralhadas por estarem fora da sintaxe padrão do SQL_
 
 ### ARQUIVOS    <br/>
 
