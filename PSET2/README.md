@@ -1,4 +1,3 @@
-# PSET2  
-_by Maurício Grigoleto Belinassi
+# Instruções para o PSET2  
+_by Maurício Grigoleto Belinassi_
 
-### INSTRUÇÕES  <br/>
