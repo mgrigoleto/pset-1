@@ -17,7 +17,20 @@ ORDER BY nome_departamento;
 
 /* QUESTÃO 04 */
 SELECT primeiro_nome AS Nome, nome_meio AS Nome_do_meio, ultimo_nome AS Sobrenome, FLOOR(DATEDIFF(CURDATE(), data_nascimento)/365.25) AS Idade, 
-salario AS Salário, salario*0.2 AS Novo salário
+salario AS Salário, CAST((salario*1.2) AS DECIMAL(10,2)) AS Novo_salário FROM funcionarios
 WHERE salario < '35000'
 UNION
+SELECT primeiro_nome AS Nome, nome_meio AS Nome_do_meio, ultimo_nome AS Sobrenome, FLOOR(DATEDIFF(CURDATE(), data_nascimento)/365.25) AS Idade, 
+salario AS Salário, CAST((salario*1.15) AS DECIMAL(10,2)) AS Novo_salário FROM funcionarios
+WHERE salario >= '35000';
 
+/* QUESTÃO 05 */
+SELECT * FROM(SELECT nome_departamento AS Departamento, primeiro_nome AS Gerente, salario AS Salário
+FROM departamento d INNER JOIN funcionarios f
+WHERE d.cpf_gerente = f.cpf
+ORDER BY d.nome_departamento asc) AS Gerentes
+UNION
+SELECT * FROM(SELECT nome_departamento AS Departamento, primeiro_nome AS Funcionário, salario AS Salário
+FROM departamento d INNER JOIN funcionarios f
+WHERE d.numero_departamento = f.numero_departamento
+ORDER BY f.salario desc) AS Funcionários;
