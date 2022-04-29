@@ -25,12 +25,8 @@ salario AS Salário, CAST((salario*1.15) AS DECIMAL(10,2)) AS Novo_salário FROM
 WHERE salario >= '35000';
 
 /* QUESTÃO 05 */
-SELECT * FROM(SELECT nome_departamento AS Departamento, primeiro_nome AS Gerente, salario AS Salário
-FROM departamento d INNER JOIN funcionarios f
-WHERE d.cpf_gerente = f.cpf
-ORDER BY d.nome_departamento asc) AS Gerentes
-UNION
-SELECT * FROM(SELECT nome_departamento AS Departamento, primeiro_nome AS Funcionário, salario AS Salário
-FROM departamento d INNER JOIN funcionarios f
-WHERE d.numero_departamento = f.numero_departamento
-ORDER BY f.salario desc) AS Funcionários;
+SELECT nome_departamento AS Departamento, g.primeiro_nome AS Gerente, f.primeiro_nome AS Funcionário, salario AS Salários
+FROM departamento d INNER JOIN funcionarios f, 
+(SELECT primeiro_nome, cpf FROM funcionarios f INNER JOIN departamento d WHERE f.cpf = d.cpf_gerente) AS g
+WHERE d.numero_departamento = f.numero_departamento AND g.cpf = d.cpf_gerente
+ORDER BY d.nome_departamento ASC, f.salario DESC;
