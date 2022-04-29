@@ -1,3 +1,3 @@
-# Instruções para o PSET2  
+# Instruções sobre o trabalho   
 _by Maurício Grigoleto Belinassi_
 
