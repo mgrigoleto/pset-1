@@ -65,3 +65,7 @@ p.numero_projeto = t.numero_projeto
 GROUP BY p.Nome_projeto;
 
 /* QUESTÃO 10 */
+SELECT d.nome_departamento AS Departamento, CAST(AVG(f.salario) AS DECIMAL(10,2)) AS Média_salarial
+FROM departamento d INNER JOIN funcionarios f
+WHERE d.numero_departamento = f.numero_departamento
+GROUP BY d.nome_departamento;
