@@ -47,3 +47,14 @@ INNER JOIN departamento dto
 INNER JOIN dependente dpd
 WHERE dto.numero_departamento = f.numero_departamento AND
 f.cpf NOT IN (SELECT dpd.cpf_funcionario FROM dependente dpd);
+
+/* QUESTÃO 08 */
+SELECT d.nome_departamento AS Departamento, p.nome_projeto AS Projeto,
+f.primeiro_nome AS Nome, f.nome_meio AS Nome_meio, f.ultimo_nome AS Sobrenome, t.horas AS Horas
+FROM funcionarios f INNER JOIN departamento d INNER JOIN projeto p INNER JOIN trabalha_em t
+WHERE d.numero_departamento = f.numero_departamento AND
+p.numero_projeto = t.numero_projeto AND
+f.cpf = t.cpf_funcionario
+ORDER BY p.numero_projeto;
+
+/* QUESTÃO 09 */
