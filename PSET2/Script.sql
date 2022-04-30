@@ -91,3 +91,16 @@ WHERE f.cpf = t.cpf_funcionario AND p.numero_projeto = t.numero_projeto AND (t.h
 GROUP BY f.primeiro_nome;
 
 /* QUESTÃO 13 */
+SELECT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome,
+CASE WHEN sexo = 'M' THEN 'Masculino' WHEN sexo = 'm' THEN 'Masculino'
+WHEN sexo = 'F' THEN 'Feminino' WHEN sexo = 'f' THEN 'Feminino' END AS Sexo,
+FLOOR(DATEDIFF(CURDATE(), f.data_nascimento)/365.25) AS Idade
+FROM funcionarios f
+UNION
+SELECT d.nome_dependente AS Nome,
+CASE WHEN sexo = 'M' THEN 'Masculino' WHEN sexo = 'm' THEN 'Masculino'
+WHEN sexo = 'F' THEN 'Feminino' WHEN sexo = 'f' THEN 'Feminino' END AS Sexo,
+FLOOR(DATEDIFF(CURDATE(), d.data_nascimento)/365.25) AS Idade
+FROM dependente d
+ORDER BY Idade;
+
