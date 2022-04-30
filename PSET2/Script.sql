@@ -58,3 +58,10 @@ f.cpf = t.cpf_funcionario
 ORDER BY p.numero_projeto;
 
 /* QUESTÃO 09 */
+SELECT d.nome_departamento AS Departamento, p.nome_projeto AS Projeto, SUM(t.horas) AS Total_de_horas
+FROM departamento d INNER JOIN projeto p INNER JOIN trabalha_em t
+WHERE d.numero_departamento = p.numero_departamento AND
+p.numero_projeto = t.numero_projeto
+GROUP BY p.Nome_projeto;
+
+/* QUESTÃO 10 */
