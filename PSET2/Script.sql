@@ -105,7 +105,22 @@ FROM dependente d
 ORDER BY Idade;
 
 /* QUESTÃO 14 */
-SELECT d.nome_departamento, COUNT(f.numero_departamento) AS Número_funcionários
+SELECT d.nome_departamento AS Departamento, COUNT(f.numero_departamento) AS Número_funcionários
 FROM funcionarios f INNER JOIN departamento d
 WHERE f.numero_departamento = d.numero_departamento
 GROUP BY d.nome_departamento;
+
+/* QUESTÃO 15 */
+SELECT DISTINCT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome,
+d.nome_departamento AS Departamento, 
+p.nome_projeto AS Projeto
+FROM departamento d INNER JOIN projeto p INNER JOIN trabalha_em t INNER JOIN funcionarios f 
+WHERE d.numero_departamento = f.numero_departamento AND p.numero_projeto = t.numero_projeto AND
+t.cpf_funcionario = f.cpf
+UNION
+SELECT DISTINCT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome,
+d.nome_departamento AS Departamento, 
+'Sem projeto' AS Projeto
+FROM departamento d INNER JOIN projeto p INNER JOIN trabalha_em t INNER JOIN funcionarios f 
+WHERE d.numero_departamento = f.numero_departamento AND p.numero_projeto = t.numero_projeto AND
+(f.cpf NOT IN (SELECT t.cpf_funcionario FROM trabalha_em t));
