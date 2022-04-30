@@ -68,7 +68,7 @@ SELECT d.nome_departamento AS Departamento, p.nome_projeto AS Projeto, SUM(t.hor
 FROM departamento d INNER JOIN projeto p INNER JOIN trabalha_em t
 WHERE d.numero_departamento = p.numero_departamento AND
 p.numero_projeto = t.numero_projeto
-GROUP BY p.Nome_projeto;
+GROUP BY p.nome_projeto;
 
 /* QUESTÃO 10 */
 SELECT d.nome_departamento AS Departamento, CONCAT('R$ ', CAST(AVG(f.salario) AS DECIMAL(10,2))) AS Média_salarial
