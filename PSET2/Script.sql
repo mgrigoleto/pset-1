@@ -104,3 +104,8 @@ FLOOR(DATEDIFF(CURDATE(), d.data_nascimento)/365.25) AS Idade
 FROM dependente d
 ORDER BY Idade;
 
+/* QUESTÃO 14 */
+SELECT d.nome_departamento, COUNT(f.numero_departamento) AS Número_funcionários
+FROM funcionarios f INNER JOIN departamento d
+WHERE f.numero_departamento = d.numero_departamento
+GROUP BY d.nome_departamento;
