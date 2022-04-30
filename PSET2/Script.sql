@@ -111,14 +111,14 @@ WHERE f.numero_departamento = d.numero_departamento
 GROUP BY d.nome_departamento;
 
 /* QUESTÃO 15 */
-SELECT DISTINCT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome,
+SELECT DISTINCT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome_completo,
 d.nome_departamento AS Departamento, 
 p.nome_projeto AS Projeto
 FROM departamento d INNER JOIN projeto p INNER JOIN trabalha_em t INNER JOIN funcionarios f 
 WHERE d.numero_departamento = f.numero_departamento AND p.numero_projeto = t.numero_projeto AND
 t.cpf_funcionario = f.cpf
 UNION
-SELECT DISTINCT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome,
+SELECT DISTINCT CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) AS Nome_completo,
 d.nome_departamento AS Departamento, 
 'Sem projeto' AS Projeto
 FROM departamento d INNER JOIN projeto p INNER JOIN trabalha_em t INNER JOIN funcionarios f 
