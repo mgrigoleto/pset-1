@@ -39,3 +39,11 @@ WHEN dpd.sexo = 'F' THEN 'Feminino' WHEN dpd.sexo = 'f' THEN 'Feminino' END AS S
 FROM funcionarios f 
 INNER JOIN departamento dto ON f.numero_departamento = dto.numero_departamento
 INNER JOIN dependente dpd ON dpd.cpf_funcionario = f.cpf;
+
+/* QUESTÃO 07 */
+SELECT DISTINCT f.primeiro_nome AS Nome, f.nome_meio AS Nome_meio, f.ultimo_nome AS Sobrenome, dto.nome_departamento AS Departamento,
+f.salario AS Salário FROM funcionarios f
+INNER JOIN departamento dto
+INNER JOIN dependente dpd
+WHERE dto.numero_departamento = f.numero_departamento AND
+f.cpf NOT IN (SELECT dpd.cpf_funcionario FROM dependente dpd);
