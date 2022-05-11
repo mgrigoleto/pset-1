@@ -4,7 +4,15 @@ Trabalho realizado com auxílio de pesquisas em blogs, fórums e websites sobre 
 
 
 ## OBSERVAÇÕES  </br>
-Os scripts SQL estão de acordo com o banco de dados do PSet1. Logo, os nomes das tabelas e dos campos correspondem aos criados anteriormente e não estão idênticos ao modelo apresentado no PSet1.
+Confira se os nomes das tabelas estão de acordo com o banco de dados que está sendo usado.  
+Nome das tabelas que estão no Script:  
+_**funcionario  
+departamento  
+trabalha_em  
+dependente  
+projeto  
+localizacoes_departamento**_  
+
 
 ## ARQUIVOS  <br/>
 **Script.sql** = Arquivo SQL com todas as respostas das questões propostas
